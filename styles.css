@@ -48,6 +48,12 @@ body {
     font-size: 14px;
 }
 
+/* small icon at top of each shortcut */
+.favicon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
 h1 {
     color: #333;
     text-align: center;

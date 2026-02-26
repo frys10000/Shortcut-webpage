@@ -8,5 +8,20 @@ const shortcutsData = [
         "id": 1,
         "website": "Example",
         "url": "https://example.com"
+    },
+    {
+        "id": 2,
+        "website": "Google",
+        "url": "https://google.com"
+    },
+    {
+        "id": 3,
+        "website": "YouTube",
+        "url": "https://youtube.com"
+    },
+    {
+        "id": 4,
+        "website": "Google Maps",
+        "url": "https://maps.google.com"
     }
 ];
