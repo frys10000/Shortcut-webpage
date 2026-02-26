@@ -7,7 +7,7 @@ function loadShortcuts() {
         encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">' +
             '<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="48">🔗</text>' +
         '</svg>');
-    
+
     shortcutsData.forEach(shortcut => {
         const card = document.createElement('a');
         card.href = shortcut.url;
@@ -16,24 +16,16 @@ function loadShortcuts() {
         card.className = 'shortcut-card';
         
         // use Google's favicon service to obtain the icon from the domain
-        let faviconUrl = null;
+        let faviconUrl;
         try {
-            if(shortcut.url) {
-                const hostname = new URL(shortcut.url).hostname;
-                faviconUrl = `https://www.google.com/s2/favicons?sz=64&domain=${hostname}`;
-            }
+            const hostname = new URL(shortcut.url).hostname;
+            faviconUrl = `https://www.google.com/s2/favicons?sz=64&domain=${hostname}`;
         } catch (e) {
-            faviconUrl = null;
+            faviconUrl = defaultFavicon;
         }
-        
-        let favIcon;
-        if(!faviconUrl) {
-            favIcon = `<div style="font-size: 32px;">🔗</div>`;
-        } else {
-            favIcon = `<img src="${faviconUrl}" class="favicon" onerror="this.onerror=null;this.src='${defaultFavicon}'" alt="icon">`;
-        }
+
         card.innerHTML = `
-            ${favIcon}
+            <img src="${faviconUrl}" class="favicon" onerror="this.onerror=null;this.src='${defaultFavicon}'" alt="icon">
             <div class="name">${shortcut.website}</div>
         `;
         container.appendChild(card);
